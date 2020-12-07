@@ -17,6 +17,8 @@ For this project, we have been tasked with implementing a rating system into an 
 
 ## EERD (full database)
 
+Narative: The rating system consists of two tables related to `order`, `driver`, and `restaurant`. Each rating table (`restaurant_rating` and `driver_rating`) is related to an order which ties the user, driver, restaurant, and rating together. Each rating consists of 3 fields including `id`, `rating`, and `rating_description`. With this system we can perform JOINS to query for worst/best drivers and restaurants as seen below.
+
 ![EERD](docs/EERD.png)
 
 ## Data Dictionary
