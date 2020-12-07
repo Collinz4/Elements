@@ -19,6 +19,10 @@ For this project, we have been tasked with implementing a rating system into an 
 
 ![EERD](docs/EERD.png)
 
+## Data Dictionary
+
+The data dictionary can be found [here](./docs/DB-Dictionary.html).
+
 ## MySQL Queries
 
 ## Stored Procedure
@@ -26,5 +30,15 @@ For this project, we have been tasked with implementing a rating system into an 
 ## Web/App Implementation (Optional) or Description of Future Work
 
 ## MySQL dump
+
+The MySQL dump file can be found [here](./Campus_Eats_SQL_D3_Dump.sql).
+
+## Current Rating Relationship Queries
+
+Inner join between `driver` and `driver_rating` tables.
+![Driver Rating Join](./docs/Driver-Rating-Join.png)
+
+Inner join between `restaurant` and `restaurant_rating` tables.
+![Restaurant Rating Join](./docs/Restaurant-Rating-Join.png)
 
 ## PPT Video (link)
