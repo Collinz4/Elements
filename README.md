@@ -28,9 +28,21 @@ The data dictionary can be found [here](./docs/DB-Dictionary.html).
 ## MySQL Queries
 
 ## Stored Procedure
+### Average Driver Rating Procedure
+![Average Driver Rating Procedure](./docs/drprocedure.png)
 
+### Average Restaurant Rating Procedure
+![Average Restaurant Rating Procedure](./docs/rrprocedure.png)
+
+## Custom Views
+### Driver Rating View
+![Driver Rating View](./docs/driverRating-View.png)
+
+### Restaurant Rating View
+![Restaurant Rating View](./docs/restaurantRating-View.png)
 ## Web/App Implementation (Optional) or Description of Future Work
-
+Future work would involve building a flask application and using SQLAlchemy to query the database. All
+future database modifications would be done through Alembic.
 ## MySQL dump
 
 The MySQL dump file can be found [here](./Campus_Eats_SQL_D3_Dump.sql).
@@ -42,17 +54,5 @@ Inner join between `driver` and `driver_rating` tables.
 
 Inner join between `restaurant` and `restaurant_rating` tables.
 ![Restaurant Rating Join](./docs/Restaurant-Rating-Join.png)
-
-Driver Rating View
-![Driver Rating View](./docs/driverRating-View.png)
-
-Restaurant Rating View
-![Restaurant Rating View](./docs/restaurantRating-View.png)
-
-Average Driver Rating Procedure
-![Average Driver Rating Procedure](./docs/drprocedure.png)
-
-Average Restaurant Rating Procedure
-![Average Restaurant Rating Procedure](./docs/rrprocedure.png)
 
 ## PPT Video (link)
