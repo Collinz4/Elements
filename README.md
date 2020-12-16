@@ -61,3 +61,5 @@ Inner join between `restaurant` and `restaurant_rating` tables.
 ![Restaurant Rating Join](./docs/Restaurant-Rating-Join.png)
 
 ## Youtube Video
+https://youtu.be/v4XPjoQWUQ4
+
