@@ -43,4 +43,16 @@ Inner join between `driver` and `driver_rating` tables.
 Inner join between `restaurant` and `restaurant_rating` tables.
 ![Restaurant Rating Join](./docs/Restaurant-Rating-Join.png)
 
+Driver Rating View
+![Driver Rating View](./docs/driverRating-View.png)
+
+Restaurant Rating View
+![Restaurant Rating View](./docs/restaurantRating-View.png)
+
+Average Driver Rating Procedure
+![Average Driver Rating Procedure](./docs/drprocedure.png)
+
+Average Restaurant Rating Procedure
+![Average Restaurant Rating Procedure](./docs/rrprocedure.png)
+
 ## PPT Video (link)
