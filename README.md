@@ -25,7 +25,10 @@ Narative: The rating system consists of two tables related to `order`, `driver`,
 
 The data dictionary can be found [here](./docs/DB-Dictionary.html).
 
-## MySQL Queries
+## Query Optimization
+To ensure optimal query run-times, we employed the use of a slow query log. Through the use of a slow query log, we were
+able to ensure that all of our queries were running as optimally as possible. As well as a slow query log, we made sure 
+to use to minimize the amount of results processed during our queries. For example, we made sure to include "WHERE" clauses in order to allow the SQL server to process the data in smaller datasets. We also made sure to avoid using "OR" when completing inner joins because it would increase the runtime of the overall query.
 
 ## Stored Procedure
 ### Average Driver Rating Procedure
@@ -35,11 +38,13 @@ The data dictionary can be found [here](./docs/DB-Dictionary.html).
 ![Average Restaurant Rating Procedure](./docs/rrprocedure.png)
 
 ## Custom Views
+
 ### Driver Rating View
 ![Driver Rating View](./docs/driverRating-View.png)
 
 ### Restaurant Rating View
 ![Restaurant Rating View](./docs/restaurantRating-View.png)
+
 ## Web/App Implementation (Optional) or Description of Future Work
 Future work would involve building a flask application and using SQLAlchemy to query the database. All
 future database modifications would be done through Alembic.
@@ -47,7 +52,7 @@ future database modifications would be done through Alembic.
 
 The MySQL dump file can be found [here](./Campus_Eats_SQL_D3_Dump.sql).
 
-## Current Rating Relationship Queries
+## Rating Relationship Queries
 
 Inner join between `driver` and `driver_rating` tables.
 ![Driver Rating Join](./docs/Driver-Rating-Join.png)
