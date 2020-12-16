@@ -60,4 +60,4 @@ Inner join between `driver` and `driver_rating` tables.
 Inner join between `restaurant` and `restaurant_rating` tables.
 ![Restaurant Rating Join](./docs/Restaurant-Rating-Join.png)
 
-## PPT Video (link)
+## Youtube Video
