@@ -404,6 +404,47 @@ INSERT INTO `vehicle` VALUES (1,'4333','p','Mercedes'),(2,'8289','y','BMW'),(3,'
 UNLOCK TABLES;
 
 --
+-- Dumping Views and Procedures 'Campus_Eats_Fall2020'
+--
+CREATE VIEW driverRatings AS
+    SELECT * FROM (
+        SELECT `d`.`driver_id`, `d`.`date_hired`, `dr`.`rating`, `dr`.`rating_description` FROM `driver` as `d`
+            INNER JOIN `driver_rating` as `dr` ON `d`.`driver_id` = `dr`.`driver_id`
+    ) AS `d_dr`
+    INNER JOIN (
+        SELECT `ord`.`order_id`, `loc`.`location_name`, `loc`.`location_address` FROM `location` AS `loc`
+            INNER JOIN `order` AS `ord` ON `ord`.`location_id` = `loc`.`location_id`
+        ) AS `ord_loc`
+    ON `d_dr`.`driver_id` = `ord_loc`.`order_id`
+    WHERE `d_dr`.`rating` > 3
+    ORDER BY `d_dr`.`rating` DESC;
+
+CREATE VIEW restaurantRating AS
+    SELECT * FROM (
+        SELECT `rest`.`restaurant_id`, `rest`.`location`, `rest_r`.`rating`, `rest_r`.`rating_description` FROM `restaurant` as `rest`
+            INNER JOIN `restaurant_rating` as `rest_r` ON `rest`.`restaurant_id` = `rest_r`.`restaurant_rating_id`
+    ) AS `rest_rest_r`
+    INNER JOIN (
+        SELECT `ord`.`order_id`, `loc`.`location_name`, `loc`.`location_address`, `ord`.`restaurant_id` AS `rid` FROM `location` AS `loc`
+            INNER JOIN `order` AS `ord` ON `ord`.`location_id` = `loc`.`location_id`
+        ) AS `ord_loc`
+    ON `rest_rest_r`.`restaurant_id` = `ord_loc`.`rid`
+    WHERE `rest_rest_r`.`rating` > 3
+    ORDER BY `rest_rest_r`.`rating` DESC;
+
+CREATE PROCEDURE get_restaurant_ratings()
+    SELECT `re`.`restaurant_id`, AVG(`rr`.`rating`) FROM `restaurant` AS `re`
+    INNER JOIN `restaurant_rating` AS `rr`
+    ON `re`.`restaurant_id` = `rr`.`restaurant_id`
+    GROUP BY `re`.`restaurant_id`;
+
+CREATE PROCEDURE get_driver_ratings()
+    SELECT `d`.`driver_id`, AVG(`r`.`rating`) FROM `driver` AS `d`
+    INNER JOIN `driver_rating` AS `r`
+    ON `d`.`driver_id` = `r`.`driver_id`
+    GROUP BY `d`.`driver_id`;
+
+--
 -- Dumping routines for database 'Campus_Eats_Fall2020'
 --
 /*!50003 DROP PROCEDURE IF EXISTS `add_person` */;
@@ -480,5 +521,4 @@ DELIMITER ;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2020-12-06 19:14:17
+-- Dump completed on 2020-12-15 20:09:00
